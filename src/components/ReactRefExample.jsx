@@ -9,11 +9,11 @@ export default function RefExample() {
   }
 
   return (
-    <>
-      <h1>useState: {count}</h1>
-      <h1>useRef: {myRef.current}</h1>
+    <div>
+      <h3>useState: {count}</h3>
+      <h3>useRef: {myRef.current}</h3>
       <button onClick={() => setCount(count + 1)}>Click me!</button>
       <button onClick={changeMyRef}>Increase ref!</button>
-    </>
+    </div>
   );
 }

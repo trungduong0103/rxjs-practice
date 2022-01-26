@@ -51,6 +51,37 @@ foo$.subscribe({
   },
 });
 
+// the difference between a function and an observable is that an observable can push many values, synchronously or asynchronously
+// while a function can only push a single value synchronously
+
+function bar() {
+  console.log("Call function bar()");
+  return 42;
+  // return 420; // unreachable code
+}
+
+const bar$ = new Observable((subscriber) => {
+  console.log("Subscribed to bar$");
+  for (let i = 0; i < 5; i++) {
+    subscriber.next(i);
+  }
+  setTimeout(() => {
+    subscriber.next(5);
+  });
+});
+
+console.log("Before");
+console.log(bar());
+console.log("After");
+
+console.log("Before");
+bar$.subscribe({
+  next(val) {
+    console.log(val);
+  },
+});
+console.log("After");
+
 export default function MyObservable() {
   return <>{null}</>;
 }

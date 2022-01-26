@@ -25,7 +25,6 @@ export default function MyBehaviorSubject() {
       <input
         style={{ height: 20, padding: 5 }}
         onChange={handleSubjectChange}
-        // onFocus={(e) => e.target.value}
         placeholder="Enter something"
       />
     </div>
